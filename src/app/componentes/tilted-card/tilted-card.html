@@ -1,0 +1,56 @@
+<figure
+  #cardFigure
+  class="tilted-card-figure"
+  [style.height]="containerHeight"
+  [style.width]="containerWidth"
+  (mousemove)="handleMouse($event)"
+  (mouseenter)="handleMouseEnter()"
+  (mouseleave)="handleMouseLeave()">
+
+  <div *ngIf="showMobileWarning" class="tilted-card-mobile-alert">
+    This effect is not optimized for mobile. Check on desktop.
+  </div>
+
+  <div
+    class="tilted-card-inner"
+    [style.width]="imageWidth"
+    [style.height]="imageHeight"
+    [style.transform]="cardTransform"> 
+
+    <img
+      [src]="imageSrc"
+      [alt]="altText"
+      class="tilted-card-img"
+      [style.width]="imageWidth"
+      [style.height]="imageHeight" />
+
+    <div *ngIf="displayOverlayContent" class="tilted-card-overlay">
+      <ng-content></ng-content>
+    </div>
+    
+    <div 
+      *ngIf="priceField1 || priceField2 || viewsField" 
+      class="tilted-card-price-box">
+
+      
+      <span *ngIf="viewsField > 0" class="views-field">
+        👁️ 
+        <app-count-up
+          [from]="viewsField"    [increment]="1"        [intervalMs]="viewInterval"    separator=".">         </app-count-up>
+      </span>
+      <span *ngIf="priceField1" class="price-field-1">💲{{ priceField1 }}</span>
+      <span *ngIf="priceField2" class="price-field-2">💲{{ priceField2 }}</span>
+    </div>
+    
+  </div>
+  <figcaption
+    *ngIf="showTooltip"
+    class="tilted-card-caption"
+    [style.transform]="captionTransform"
+    [style.opacity]="captionOpacity"
+    [style.left.px]="captionX"
+    [style.top.px]="captionY">
+    {{ captionText }}
+  </figcaption>
+
+</figure>

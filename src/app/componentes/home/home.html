@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>AMMUNATION</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <app-staggered-menu
+        position="right"
+        [items]="menuItems"
+        [socialItems]="socialItems"
+        [displaySocials]="true"
+        [displayItemNumbering]="true"
+        menuButtonColor="#fff"
+        openMenuButtonColor="#000"
+        [changeMenuColorOnOpen]="true"
+        [colors]="['#6c1616', '#290000']" 
+        logoUrl="logo.png"
+        accentColor="#ff1919">
+    </app-staggered-menu>
+    <ngb-carousel
+        [interval]="3000"
+        [pauseOnHover]="false"  
+        [showNavigationArrows]="true"
+        [showNavigationIndicators]="true">
+
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="store1.png" class="d-block w-100">
+            </div>
+        </ng-template>
+
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="store2.png" class="d-block w-100">
+            </div>
+        </ng-template>
+
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="store3.png" class="d-block w-100">
+            </div>
+        </ng-template>
+
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="store4.png" class="d-block w-100">
+            </div>
+        </ng-template>
+
+        <ng-template ngbSlide>
+            <div class="carousel-img-wrapper">
+                <img src="store5.png" class="d-block w-100">
+            </div>
+        </ng-template>
+    </ngb-carousel>
+   
+    <main>
+        <section id="home">
+
+        </section>
+        <section id="rifles">
+            <h2>Rifles</h2>
+            <div class="container my-5"> <div class="row">
+    
+                <div *ngFor="let card of rifleList" class="col-12 col-md-6 col-lg-3 mb-4">
+      
+                    <app-tilted-card
+                        [imageSrc]="card.imageSrc"
+                        [altText]="card.altText"
+                        [captionText]="card.captionText"
+                        containerHeight="480px"
+                        imageHeight="480px"
+                        containerWidth="100%"
+                        imageWidth="100%"   
+                        [rotateAmplitude]="12"
+                        [scaleOnHover]="1.1"
+                        [displayOverlayContent]="true"
+                        [showTooltip]="false"
+                        [showMobileWarning]="false"
+                        [priceField1]="card.oldPrice"
+                        [priceField2]="card.newPrice"
+                        [viewsField]="card.views"
+                        [viewInterval]="card.viewInterval"> 
+                        <p>{{ card.captionText }}</p>
+
+                    </app-tilted-card>
+
+                </div>
+    
+            </div>
+            </div>
+        </section>
+        
+        <section id="shotguns">
+            <h2>Shotguns</h2>
+            <div class="container my-5"> <div class="row">
+    
+                <div *ngFor="let card of shotgunList" class="col-12 col-md-6 col-lg-3 mb-4">
+      
+                    <app-tilted-card
+                        [imageSrc]="card.imageSrc"
+                        [altText]="card.altText"
+                        [captionText]="card.captionText"
+                        containerHeight="480px"
+                        imageHeight="480px"
+                        containerWidth="100%"
+                        imageWidth="100%"   
+                        [rotateAmplitude]="12"
+                        [scaleOnHover]="1.1"
+                        [displayOverlayContent]="true"
+                        [showTooltip]="false"
+                        [showMobileWarning]="false"
+                        [priceField1]="card.oldPrice"
+                        [priceField2]="card.newPrice"
+                        [viewsField]="card.views"
+                        [viewInterval]="card.viewInterval">
+                        <p>{{ card.captionText }}</p>
+
+                    </app-tilted-card>
+
+                </div>
+    
+            </div>
+            </div>
+        </section>
+
+        <section id="pistolas">
+            <h2>Pistolas</h2>
+            <div class="container my-5"> <div class="row">
+    
+                <div *ngFor="let card of pistolList" class="col-12 col-md-6 col-lg-3 mb-4">
+      
+                    <app-tilted-card
+                        [imageSrc]="card.imageSrc"
+                        [altText]="card.altText"
+                        [captionText]="card.captionText"
+                        containerHeight="380px"
+                        imageHeight="380px"
+                        containerWidth="100%"
+                        imageWidth="100%"   
+                        [rotateAmplitude]="12"
+                        [scaleOnHover]="1.1"
+                        [displayOverlayContent]="true"
+                        [showTooltip]="false"
+                        [showMobileWarning]="false"
+                        [priceField1]="card.oldPrice"
+                        [priceField2]="card.newPrice"
+                        [viewsField]="card.views"
+                        [viewInterval]="card.viewInterval">     
+                        <p>{{ card.captionText }}</p>
+
+                    </app-tilted-card>
+
+                </div>
+    
+            </div>
+            </div>
+            </section>
+        
+        <section id="acessorios">
+            <h2>Melees</h2>
+            <div class="container my-5"> <div class="row">
+    
+                <div *ngFor="let card of meleeList" class="col-12 col-md-6 col-lg-3 mb-4">
+      
+                    <app-tilted-card
+                        [imageSrc]="card.imageSrc"
+                        [altText]="card.altText"
+                        [captionText]="card.captionText"
+                        containerHeight="380px"
+                        imageHeight="380px"
+                        containerWidth="100%"
+                        imageWidth="100%"   
+                        [rotateAmplitude]="12"
+                        [scaleOnHover]="1.1"
+                        [displayOverlayContent]="true"
+                        [showTooltip]="false"
+                        [showMobileWarning]="false"
+                        [priceField1]="card.oldPrice"
+                        [priceField2]="card.newPrice"
+                        [viewsField]="card.views"
+                        [viewInterval]="card.viewInterval">  
+                        <p>{{ card.captionText }}</p>
+
+                    </app-tilted-card>
+
+                </div>
+    
+            </div>
+            </div>
+            </section>
+</main>
+</body>
+</html>

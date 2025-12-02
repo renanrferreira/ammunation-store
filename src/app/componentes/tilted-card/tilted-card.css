@@ -1,0 +1,79 @@
+.tilted-card-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilted-card-img{
+  border-radius: 15px;
+  object-fit: cover;
+  position: absolute;
+}
+
+.tilted-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.1s linear; 
+}
+
+.tilted-card-caption {
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.2s ease-out, transform 0.1s linear;
+}
+
+.tilted-card-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  will-change: transform; 
+  transform: translateZ(30px);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.5rem 1rem; 
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.tilted-card-price-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;  
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(30px); 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end;
+  padding: 0.5rem 1rem;
+}
+
+.tilted-card-price-box span {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7); 
+}
+
+.price-field-1 {
+  font-size: 1.2rem;
+  color: #6c1616;
+  text-decoration: line-through;
+}
+
+.price-field-2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00ff00;
+}
+.views-field {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}

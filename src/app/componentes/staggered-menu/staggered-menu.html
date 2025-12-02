@@ -1,0 +1,85 @@
+<div
+  class="staggered-menu-wrapper"
+  [class.fixed-wrapper]="isFixed"
+  [style.--sm-accent]="accentColor"
+  [attr.data-position]="position"
+  [attr.data-open]="open ? true : null">
+
+  <div #preLayers class="sm-prelayers" aria-hidden="true">
+    <div *ngFor="let c of preLayerColors" class="sm-prelayer" [style.background]="c"></div>
+  </div>
+
+  <header class="staggered-menu-header" aria-label="Main navigation header">
+    <div class="sm-logo" aria-label="Logo">
+      <img
+        [src]="logoUrl"
+        alt="Logo"
+        class="sm-logo-img"
+        draggable="false"
+        width="110"
+        height="24" />
+    </div>
+
+    <button
+      #toggleBtn
+      class="sm-toggle"
+      [attr.aria-label]="open ? 'Close menu' : 'Open menu'"
+      [attr.aria-expanded]="open"
+      aria-controls="staggered-menu-panel"
+      (click)="toggleMenu()"
+      type="button">
+
+      <span #textWrap class="sm-toggle-textWrap" aria-hidden="true">
+        <span #textInner class="sm-toggle-textInner">
+          <span *ngFor="let l of textLines" class="sm-toggle-line">
+            {{ l }}
+          </span>
+        </span>
+      </span>
+      <span #icon class="sm-icon" aria-hidden="true">
+        <span #plusH class="sm-icon-line"></span>
+        <span #plusV class="sm-icon-line sm-icon-line-v"></span>
+      </span>
+    </button>
+  </header>
+
+  <aside 
+    id="staggered-menu-panel" 
+    #panel 
+    class="staggered-menu-panel" 
+    [attr.aria-hidden]="!open">
+    <div class="sm-panel-inner">
+
+      <ul class="sm-panel-list" role="list" [attr.data-numbering]="displayItemNumbering ? true : null">
+        
+        <li *ngIf="items.length === 0" class="sm-panel-itemWrap" aria-hidden="true">
+          <span class="sm-panel-item">
+            <span class="sm-panel-itemLabel">No items</span>
+          </span>
+        </li>
+        
+        <li *ngFor="let it of items; let idx = index" class="sm-panel-itemWrap">
+          <a 
+            class="sm-panel-item" 
+            (click)="onItemClick(it.link)" 
+            [attr.aria-label]="it.ariaLabel" 
+            [attr.data-index]="idx + 1">
+            <span class="sm-panel-itemLabel">{{ it.label }}</span>
+          </a>
+        </li>
+      </ul>
+      
+      <div *ngIf="displaySocials && socialItems.length > 0" class="sm-socials" aria-label="Social links">
+
+        <ul class="sm-socials-list" role="list">
+          <li *ngFor="let s of socialItems" class="sm-socials-item">
+            <a [href]="s.link" target="_blank" rel="noopener noreferrer" class="sm-socials-link">
+              {{ s.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </aside>
+</div>

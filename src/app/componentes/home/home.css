@@ -1,0 +1,14 @@
+body{
+    background-color: #121212;
+    color: #FFFF;
+    font-family: 'Pricedown', sans-serif; 
+}
+p{
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+}
+h2{
+    font-size: 3rem;
+    justify-content: center;
+    display: flex;
+}

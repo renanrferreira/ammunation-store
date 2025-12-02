@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <div class="navbar-container">
+
+        <ul class="navbar-menu navbar-menu-left">
+            <li class="navbar-item">
+                <a (click)="scrollTo('rifles')" class="navbar-link">Rifles</a>
+            </li>
+            <li class="navbar-item">
+                <a (click)="scrollTo('shotguns')" class="navbar-link">Shotguns</a>
+            </li>
+        </ul>
+
+        <a (click)="scrollTo('home')" class="navbar-logo">
+            <img src="logo.png">
+        </a>
+        
+        <ul class="navbar-menu navbar-menu-right">
+            <li class="navbar-item">
+                <a (click)="scrollTo('pistolas')" class="navbar-link">Pistolas</a>
+            </li>
+            <li class="navbar-item">
+                <a (click)="scrollTo('acessorios')" class="navbar-link">Melees</a>
+            </li>
+        </ul>
+    </div>
+</nav>
